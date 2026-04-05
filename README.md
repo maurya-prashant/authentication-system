@@ -10,13 +10,18 @@ This project is part of my journey to deeply understand how authentication works
 * FastAPI
 * Python
 * Uvicorn
+* SQLAlchemy (ORM)
+* SQLite (Database)
 
 ---
 
-## 📌 Features (Planned)
+## 📌 Features (Planned & Completed)
 
 * [x] Project setup with FastAPI
-* [ ] User signup (registration)
+* [x] Basic routing
+* [x] Database setup (SQLite)
+* [x] User model (SQLAlchemy ORM)
+* [ ] User signup (registration API)
 * [ ] User login
 * [ ] Password hashing
 * [ ] JWT authentication
@@ -32,6 +37,13 @@ This project is part of my journey to deeply understand how authentication works
 * Setup FastAPI project
 * Created basic routes
 * Ran server successfully
+
+### Day 2
+
+* Setup SQLite database
+* Created database connection
+* Defined User model using SQLAlchemy
+* Successfully created database tables
 
 ---
 
@@ -51,10 +63,35 @@ python -m venv venv
 venv\Scripts\activate
 
 # Install dependencies
-pip install fastapi uvicorn
+pip install fastapi uvicorn sqlalchemy pydantic
 
 # Run server
 uvicorn main:app --reload
+```
+
+---
+
+## 📍 API Endpoints
+
+### POST /signup
+
+Register a new user
+
+**Request Body:**
+
+```json
+{
+  "email": "test@example.com",
+  "password": "123456"
+}
+```
+
+**Response:**
+
+```json
+{
+  "message": "User created successfully"
+}
 ```
 
 ---
@@ -64,6 +101,12 @@ uvicorn main:app --reload
 Once server is running:
 
 * Swagger UI: http://127.0.0.1:8000/docs
+
+---
+
+## ⚠️ Current Limitation
+
+* Passwords are stored in plain text (will be fixed in upcoming steps with hashing)
 
 ---
 
@@ -79,7 +122,7 @@ To build a production-ready authentication system while understanding:
 
 ## 🧠 Learning Approach
 
-This project is built step-by-step (day by day) instead of copying tutorials, focusing on real understanding.
+This project is built step-by-step (day by day) instead of copying tutorials, focusing on real understanding and hands-on debugging.
 
 ---
 
